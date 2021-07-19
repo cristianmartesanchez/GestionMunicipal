@@ -1,0 +1,104 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppActividades.Vistas.Actividades"    
+             Title="Actividades">
+
+
+    <ContentPage.ToolbarItems>
+
+        <ToolbarItem Text="Imprimir"
+                     Clicked="OnPrintClicked" 
+                     Priority="0" IconImageSource="printer.png" >
+
+        </ToolbarItem>
+
+        <ToolbarItem Text="Agregar"
+                     Clicked="OnAddClicked" 
+                     Priority="1" IconImageSource="add.png" >
+
+        </ToolbarItem>
+    </ContentPage.ToolbarItems>
+    <StackLayout HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand">
+
+        <SearchBar x:Name="searchBar"
+                   Placeholder="Buscar" CancelButtonColor="Orange"
+                   TextChanged="SearchBar_TextChanged"/>
+
+        <CollectionView x:Name="collectionView"
+                    Margin="5"
+                    SelectionMode="Single"                   
+                    SelectionChanged="OnCollectionViewSelectionChanged"
+                    HorizontalOptions="FillAndExpand"
+                    VerticalOptions="FillAndExpand">
+            
+            <!--<CollectionView.ItemsLayout>
+                <LinearItemsLayout Orientation="Vertical"
+                               ItemSpacing="5" />
+            </CollectionView.ItemsLayout>-->
+
+            <CollectionView.ItemTemplate>
+                <DataTemplate>
+                    <StackLayout>
+                        <Frame HasShadow="True" Margin="10" 
+                               HeightRequest="250"
+                               WidthRequest="400"
+                               CornerRadius="5" 
+                               VerticalOptions="CenterAndExpand"
+                               HorizontalOptions="Center">
+                            <StackLayout>
+                                <Image x:Name="principalImage"  
+                                    Source="{Binding Foto_Principal}"
+                                    Aspect="AspectFill"
+                                    HeightRequest="200"
+                                    WidthRequest="300" 
+                                       HorizontalOptions="Center" />
+
+                                <Label 
+                                    Text="{Binding Title}"
+                                    FontAttributes="Bold" 
+                                    FontSize="Large" />
+
+                            </StackLayout>
+                        </Frame>
+                    </StackLayout>
+                </DataTemplate>
+            </CollectionView.ItemTemplate>
+            <!--<CollectionView.EmptyView>
+                <controls:FilterData Filter="{Binding Source={x:Reference searchBar}, Path=Text}" />
+            </CollectionView.EmptyView>-->
+
+            <CollectionView.EmptyView>
+                <ContentView>
+                    <StackLayout HorizontalOptions="CenterAndExpand"
+                             VerticalOptions="CenterAndExpand">
+                        <Label Text="No results matched your filter."
+                           Margin="10,25,10,10"
+                           FontAttributes="Bold"
+                           FontSize="18"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                        <Label Text="Try a broader filter?"
+                           FontAttributes="Italic"
+                           FontSize="12"
+                           HorizontalOptions="Fill"
+                           HorizontalTextAlignment="Center" />
+                    </StackLayout>
+                </ContentView>
+            </CollectionView.EmptyView>
+
+            <CollectionView.EmptyViewTemplate>
+                <DataTemplate>
+                    <Label Text="{Binding Filter, StringFormat='Your filter term of {0} did not match any records.'}"
+                       Margin="10,25,10,10"
+                       FontAttributes="Bold"
+                       FontSize="18"
+                       HorizontalOptions="Fill"
+                       HorizontalTextAlignment="Center" />
+                </DataTemplate>
+            </CollectionView.EmptyViewTemplate>
+        </CollectionView>
+    </StackLayout>
+    
+
+</ContentPage>

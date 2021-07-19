@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppActividades.Vistas.ActividadEditar"
+             Title="Editar Actividad">
+
+
+    <ContentPage.ToolbarItems >
+        <ToolbarItem Text="Guardar"
+                   Clicked="OnSaveButtonClicked" Priority="0" >
+        </ToolbarItem>
+
+    </ContentPage.ToolbarItems>
+
+    <StackLayout>
+        <ScrollView  HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand">
+
+            <StackLayout >
+
+                <Editor Placeholder="Titulo"
+                        Text="{Binding Title}"
+                        HeightRequest="50" />
+
+                <Editor Placeholder="Tipo de Actividad"
+                        Text="{Binding Tipo_de_actividad}"
+                        HeightRequest="50" />
+
+                <Label Text="Imagen Principal" FontSize="Medium"  Margin="10" TextColor="Black" />
+                <Image x:Name="imageView" Margin="5" HeightRequest="150" WidthRequest="150" 
+                       HorizontalOptions="FillAndExpand" Source="{Binding Foto_Principal}" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer Tapped="btnSelectPic_Clicked" NumberOfTapsRequired="2"/>
+                    </Image.GestureRecognizers>
+                </Image>
+
+                <Editor Placeholder="Texto Descriptivo"
+                         Text="{Binding Texto_Descriptivo }"
+                         AutoSize="TextChanges" />
+
+                <Grid x:Name="ContentLogros" HorizontalOptions="FillAndExpand"  >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Label Text="Logros" FontSize="Large" 
+                           HorizontalTextAlignment="Center" 
+                           TextColor="Black" Grid.Row="0" 
+                           />
+                    <Entry Placeholder="Logros" Grid.Column="0"
+                            Grid.Row="1" TextChanged="OnEditorTextChanged"
+                         Text="{Binding Logros1_Cantidad }"/>
+                    
+                    <Editor Placeholder="Logros Unidad de medida" Grid.Column="0"
+                            Grid.Row="2"
+                         Text="{Binding Logros1_UnidadMedida }"
+                         AutoSize="TextChanges" />
+
+                    <Entry Placeholder="Logros" Grid.Column="0"
+                            Grid.Row="3" TextChanged="OnEditorTextChanged"
+                         Text="{Binding Logros2_Cantidad }"  />
+                    
+                    <Editor Placeholder="Logros Unidad de medida" Grid.Column="0"
+                            Grid.Row="4"
+                         Text="{Binding Logros2_UnidadMedida }"
+                         AutoSize="TextChanges" />
+
+                </Grid>
+
+                <!--<Button x:Name="btnAgregarFoto" Text="Agregar Foto" Clicked="btnAgregarFoto_Clicked" BackgroundColor="DodgerBlue" TextColor="White" />-->
+
+                <Grid x:Name="ContentFoto" >
+                    <Grid.ColumnDefinitions >
+                        <ColumnDefinition />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions >
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                        <RowDefinition Height="Auto" />
+                    </Grid.RowDefinitions>
+
+                    <Image Grid.Column="0" 
+                           Grid.Row="0" 
+                           HeightRequest = "150" 
+                           WidthRequest = "150" Source="{Binding Foto1Url}" ClassId="0" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" NumberOfTapsRequired="2"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Editor Placeholder = "Descripción de la foto" Text="{Binding Foto1_Pie}" AutoSize="TextChanges" Grid.Column="0" Grid.Row="1" />
+
+                    <Image Grid.Column="0" 
+                           Grid.Row="2" 
+                           HeightRequest = "150" 
+                           WidthRequest = "150" Source="{Binding Foto2Url}" ClassId="1" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" NumberOfTapsRequired="2"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Editor Placeholder = "Descripción de la foto" Text="{Binding Foto2_Pie}" AutoSize="TextChanges" Grid.Column="0" Grid.Row="3" />
+
+                    <Image Grid.Column="0" 
+                           Grid.Row="4" 
+                           HeightRequest = "150" 
+                           WidthRequest = "150" Source="{Binding Foto3Url}" ClassId="2" >
+                        <Image.GestureRecognizers>
+                            <TapGestureRecognizer Tapped="OnTapGestureRecognizerTapped" NumberOfTapsRequired="2"/>
+                        </Image.GestureRecognizers>
+                    </Image>
+                    <Editor Placeholder = "Descripción de la foto" Text="{Binding Foto3_Pie}" AutoSize="TextChanges" Grid.Column="0" Grid.Row="5" />
+
+                </Grid>
+
+            </StackLayout>
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

@@ -1,0 +1,132 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="AppActividades.Vistas.AgregarActividad"
+             Title="Agregar Actividad">
+
+
+    <ContentPage.ToolbarItems >
+        <ToolbarItem Text="Guardar"
+                   Clicked="OnSaveButtonClicked" Priority="0"   >
+        </ToolbarItem>
+
+    </ContentPage.ToolbarItems>
+
+    <StackLayout Margin="10">
+        <ScrollView  HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand">
+            
+            <StackLayout  x:Name="layoutContent" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand">
+
+                <Editor Placeholder="Titulo"
+                        Text="{Binding Title}"
+                        HeightRequest="50" />
+
+                <Editor Placeholder="Tipo de Actividad"
+                        Text="{Binding Tipo_de_actividad}"
+                        HeightRequest="50" />
+
+                <Label Text="Imagen Principal" FontSize="Medium"  Margin="10" TextColor="Black" ></Label>
+                <Image x:Name="imageView" Margin="5" HeightRequest="150" WidthRequest="150" 
+                       HorizontalOptions="FillAndExpand" Source="plus.png" >
+                    <Image.GestureRecognizers>
+                        <TapGestureRecognizer x:Name="gesture" Tapped="btnSelectPic_Clicked" NumberOfTapsRequired="2"/>
+                    </Image.GestureRecognizers>                    
+                </Image>
+
+                <Editor Placeholder="Texto Descriptivo"
+                         Text="{Binding Texto_Descriptivo }"
+                         AutoSize="TextChanges" />
+
+
+                <StackLayout>
+                    <Frame BorderColor="White"
+                           CornerRadius="5"
+                           Padding="8"
+                           Margin="5">
+                        
+                        <StackLayout>
+
+                            <Grid HorizontalOptions="FillAndExpand">
+                                
+                                <Label Text="Agregar Logros" 
+                                       FontSize="Medium" 
+                                       HorizontalOptions="Start"
+                                       FontAttributes="Bold" Grid.Column="0" />
+
+                                <ImageButton x:Name="btnAgregarLogros" 
+                                             CornerRadius="200" 
+                                             HeightRequest="30" 
+                                             HorizontalOptions="End" 
+                                             Source="add.png" Clicked="btnAgregarLogros_Clicked" Grid.Column="1" />
+
+                            </Grid>
+                            
+                            <BoxView Color="Gray"  
+                                     HeightRequest="2" 
+                                     HorizontalOptions="FillAndExpand" />
+                            
+                            <Grid x:Name="ContentLogros" HorizontalOptions="FillAndExpand">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+
+                            </Grid>
+
+                        </StackLayout>
+
+                    </Frame>
+                </StackLayout>
+
+                <StackLayout>
+                    <Frame BorderColor="White"
+                           CornerRadius="5"
+                           Padding="8"
+                           Margin="5">
+
+                        <StackLayout>
+
+                            <Grid HorizontalOptions="FillAndExpand">
+
+                                <Label Text="Agregar Foto" 
+                                       FontSize="Medium" 
+                                       HorizontalOptions="Start"
+                                       FontAttributes="Bold" Grid.Column="0" />
+
+                                <ImageButton x:Name="btnAgregarFoto" 
+                                             CornerRadius="200" 
+                                             HeightRequest="30" 
+                                             HorizontalOptions="End" 
+                                             Source="add.png" Clicked="btnAgregarFoto_Clicked" Grid.Column="1" />
+
+                            </Grid>
+
+                            <BoxView Color="Gray"  
+                                     HeightRequest="2" 
+                                     HorizontalOptions="FillAndExpand" />
+
+                            <Grid x:Name="ContentFoto" >
+                                <Grid.ColumnDefinitions >
+                                    <ColumnDefinition />
+                                </Grid.ColumnDefinitions>
+                                <Grid.RowDefinitions >
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                    <RowDefinition Height="Auto" />
+                                </Grid.RowDefinitions>
+
+                            </Grid>
+
+                        </StackLayout>
+
+                    </Frame>
+                </StackLayout>
+
+                
+
+            </StackLayout>   
+        </ScrollView>
+    </StackLayout>
+</ContentPage>

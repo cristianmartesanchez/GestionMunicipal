@@ -1,0 +1,159 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="AppActividades.Vistas.ActividadDetalle"
+             Title="Detalle Actividad">
+    <ContentPage.ToolbarItems >
+        <ToolbarItem Text="Editar"
+                   Clicked="ToolbarItem_Clicked" />
+
+
+    </ContentPage.ToolbarItems>
+    <ContentPage.Content>
+        <StackLayout>
+            <ScrollView HorizontalOptions="FillAndExpand"  VerticalOptions="FillAndExpand">
+            <StackLayout>
+                <Label Text="{Binding Title}" 
+                       Margin="10" 
+                       FontSize="Title"
+                       TextColor="Black"
+                        FontAttributes="Bold" 
+                       HorizontalOptions="StartAndExpand"/>
+
+                <Label Text="{Binding Tipo_de_actividad}" 
+                       Margin="10" 
+                       FontSize="Medium"
+                       FontAttributes="Italic"
+                       TextColor="Black"
+                       HorizontalOptions="StartAndExpand"/>
+                
+                <Image x:Name="principalImage"  
+                       Source="{Binding Foto_Principal}"
+                       Aspect="AspectFill"
+                       Margin="10"
+                       HeightRequest="250"
+
+                       WidthRequest="400" 
+                       VerticalOptions="Center"
+                       HorizontalOptions="Center" />
+
+                <Label Text="{Binding Texto_Descriptivo}" 
+                       Margin="10" 
+                       FontSize="Body"
+                       HorizontalTextAlignment="Start"
+                       FontAttributes="Bold"
+                       TextColor="Black"
+                       HorizontalOptions="StartAndExpand"/>
+
+                <Grid x:Name="contentLogros" HorizontalOptions="CenterAndExpand">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*" />
+                        <RowDefinition />
+                        <RowDefinition />
+                     </Grid.RowDefinitions>
+
+                    <Label Text="Logros" FontSize="Large" 
+                           HorizontalTextAlignment="Center" 
+                           TextColor="Black" Grid.Row="0" 
+                           Grid.ColumnSpan="2" 
+                           />
+
+                        <Label HorizontalTextAlignment="Center" 
+                       Text="{Binding Logros1_Cantidad}" 
+                       FontSize="Medium" 
+                       Grid.Row="1" 
+                       Grid.Column="0" />
+
+                        <Label Text="{Binding Logros1_UnidadMedida}" 
+                       FontSize="Medium" 
+                       Grid.Row="1" 
+                       Grid.Column="1" 
+                           HorizontalOptions="FillAndExpand"
+                           LineBreakMode="WordWrap"
+                           MaxLines="2"
+                           />
+
+                    <Label Text="{Binding Logros2_Cantidad}" 
+                           HorizontalTextAlignment="Center"
+                           FontSize="Medium" 
+                           Grid.Row="2" 
+                           Grid.Column="0" />
+                    
+                    <Label Text="{Binding Logros2_UnidadMedida}" 
+                           FontSize="Medium" 
+                           Grid.Row="2" 
+                           Grid.Column="1" />
+                    </Grid>
+
+                <Grid x:Name="contentFotos"  HorizontalOptions="CenterAndExpand">
+
+                        <Grid.RowDefinitions>
+                            <RowDefinition />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto" />
+                            <RowDefinition Height="Auto"/>
+                        </Grid.RowDefinitions>
+                     
+                        <Label Text="Fotos" FontSize="Large" 
+                           HorizontalTextAlignment="Center" 
+                           TextColor="Black" Grid.Row="0" 
+                           Grid.ColumnSpan="2" 
+                           />
+
+                        <Image  
+                    Source="{Binding Foto1Url}"
+                    Aspect="AspectFill"
+                    Margin="5"
+                    HeightRequest="150"
+                    WidthRequest="150" 
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                     Grid.Row="1" Grid.Column="0"/>
+
+                     <Label Text="{Binding Foto1_Pie}" 
+                        FontSize="Medium" 
+                        Grid.Row="1" 
+                        Grid.Column="1" />
+
+
+                        <Image  
+                    Source="{Binding Foto2Url}"
+                    Aspect="AspectFill"
+                    Margin="5"
+                    HeightRequest="150"
+                    WidthRequest="150" 
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                     Grid.Row="2" Grid.Column="0"/>
+
+                 <Label Text="{Binding Foto2_Pie}" 
+                        FontSize="Medium" 
+                        Grid.Row="2" 
+                        Grid.Column="1" />
+
+                        <Image  
+                    Source="{Binding Foto3Url}"
+                    Aspect="AspectFill"
+                    Margin="5"
+                    HeightRequest="150"
+                    WidthRequest="150" 
+                    VerticalOptions="Center"
+                    HorizontalOptions="Center"
+                     Grid.Row="3" Grid.Column="0"/>
+
+                        <Label Text="{Binding Foto3_Pie}" 
+                        FontSize="Medium" 
+                        Grid.Row="3" 
+                        Grid.Column="1" />
+
+                    </Grid>
+
+                </StackLayout>
+       </ScrollView>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>
