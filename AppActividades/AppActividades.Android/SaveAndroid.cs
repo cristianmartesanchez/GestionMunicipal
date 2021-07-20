@@ -7,11 +7,7 @@ using System.Threading.Tasks;
 using AppActividades;
 using Plugin.CurrentActivity;
 using Android.App;
-using AppActividades.Droid;
 using AndroidX.Core.Content;
-using Plugin.Permissions;
-using Plugin.Permissions.Abstractions;
-using Android.Widget;
 using AppActividades.Services;
 
 [assembly: Dependency(typeof(SaveAndroid))]
@@ -26,9 +22,9 @@ class SaveAndroid: ISave
         {
 
             string docPath = null;
+            /*Android.OS.Environment.ExternalStorageDirectory.Path*/
 
-
-            docPath = Android.OS.Environment.ExternalStorageDirectory.Path + "/" + Android.OS.Environment.DirectoryDocuments;
+            docPath = Android.App.Application.Context.GetExternalFilesDir(Android.OS.Environment.DirectoryDocuments).Path;// + "/" + Android.OS.Environment.DirectoryDocuments;
 
 
             //Create directory and file 
@@ -53,7 +49,7 @@ class SaveAndroid: ISave
             if (file.Exists())
             {
                 //Android.Net.Uri path = Android.Net.Uri.FromFile(file);
-                Android.Net.Uri path = FileProvider.GetUriForFile(Forms.Context, Android.App.Application.Context.PackageName + ".fileprovider", file);
+                Android.Net.Uri path = FileProvider.GetUriForFile(Android.App.Application.Context, Android.App.Application.Context.PackageName + ".fileprovider", file);
                 string extension = Android.Webkit.MimeTypeMap.GetFileExtensionFromUrl(Android.Net.Uri.FromFile(file).ToString());
                 string mimeType = string.Empty;
                 switch (extension.ToLower())

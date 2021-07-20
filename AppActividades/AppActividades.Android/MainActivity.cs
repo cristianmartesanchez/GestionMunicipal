@@ -3,16 +3,8 @@
 using Android.App;
 using Android.Content.PM;
 using Android.Runtime;
-using Android.Widget;
 using Android.OS;
 using Plugin.CurrentActivity;
-using Android.Content;
-using System.Collections.Generic;
-using Xamarin.Forms;
-using Android.Database;
-using Android.Provider;
-using CarouselView.FormsPlugin.Droid;
-using System.IO;
 using Acr.UserDialogs;
 
 namespace AppActividades.Droid

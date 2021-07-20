@@ -72,7 +72,7 @@ namespace AppActividades.Modelos
 
                     foreach (char c in password.ToCharArray()) passwordSecure.AppendChar(c);
 
-                    var context = await new AuthenticationManager().GetContext(site, email, passwordSecure);
+                    var context = new AuthenticationManager().GetContext(site, email, passwordSecure);
                     
                     context.Load(context.Web, p => p.Title);
                     await context.ExecuteQueryAsync();

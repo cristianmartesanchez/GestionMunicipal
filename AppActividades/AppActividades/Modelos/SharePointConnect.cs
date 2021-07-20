@@ -68,7 +68,7 @@ namespace AppActividades
                 return cacheFile;
 
             }
-            catch (Exception ex)
+            catch (Exception)
             {
 
                 throw;
@@ -277,7 +277,7 @@ namespace AppActividades
                 int id = await GetLastItemIdAsync("Actividades");
                return id;
             }
-            catch (Exception ex)
+            catch (Exception)
             {
                 return 0;
             }

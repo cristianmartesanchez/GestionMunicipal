@@ -14,10 +14,7 @@ namespace AppActividades.Vistas
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class ActividadDetalle : ContentPage
     {
-        private Actividad _actividad { get; set; }
-        private SharePointConnect sharePoint { get; set; }
-        private ClientContext _context { get; set; }
-        private int actividadId = 0;
+        private Actividad _actividad = new Actividad();
 
         public ActividadDetalle(int actividadId)
         {
@@ -30,7 +27,6 @@ namespace AppActividades.Vistas
         {
             base.OnAppearing();
             DependencyService.Get<ILodingPageService>().HideLoadingPage();
-            //_actividad  = sharePoint.GetActividadById(actividadId);
             if (_actividad.Logros1_Cantidad <= 0 && _actividad.Logros2_Cantidad <= 0)
             {
                 contentLogros.IsVisible = false;

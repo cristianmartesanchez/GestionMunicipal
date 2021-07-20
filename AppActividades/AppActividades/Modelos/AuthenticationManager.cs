@@ -31,7 +31,7 @@ namespace AppActividades
 
         public AuthenticationManager() { }
 
-        public async Task<ClientContext> GetContext(Uri web, string userPrincipalName, SecureString userPassword)
+        public ClientContext GetContext(Uri web, string userPrincipalName, SecureString userPassword)
         {
             var context = new ClientContext(web);
 

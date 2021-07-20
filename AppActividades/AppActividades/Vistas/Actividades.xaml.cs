@@ -19,7 +19,6 @@ namespace AppActividades.Vistas
     public partial class Actividades : ContentPage
     {
         public ClientContext _context { get; set; }
-        private SharePointConnect sharePoint;
         private List<Actividad> _actividades;
 
         public Actividades()
@@ -68,8 +67,7 @@ namespace AppActividades.Vistas
             }
             catch (Exception ex)
             {
-
-                
+            
             }
             DependencyService.Get<ILodingPageService>().HideLoadingPage();
         }
