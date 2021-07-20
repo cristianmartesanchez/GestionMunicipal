@@ -5,6 +5,9 @@ using System.Collections.Generic;
 using System.Security;
 using Xamarin.Forms;
 using Xamarin.Forms.Xaml;
+using Microsoft.AppCenter;
+using Microsoft.AppCenter.Analytics;
+using Microsoft.AppCenter.Crashes;
 
 namespace AppActividades
 {
@@ -22,6 +25,8 @@ namespace AppActividades
 
         protected override void OnStart()
         {
+            AppCenter.Start("android=a8f152b9-8792-491d-bc5f-bc03e6152518;",
+                  typeof(Analytics), typeof(Crashes));
         }
 
         protected override void OnSleep()

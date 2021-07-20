@@ -95,7 +95,11 @@ namespace AppActividades.Vistas
                 if (status == PermissionStatus.Granted)
                 {
                     await PrintDoc();
-                }                
+                }
+                else
+                {
+                    await App.Current.MainPage.DisplayAlert("", "No tiene permiso para realizar esta acción.", "OK");
+                }
              
 
             }
